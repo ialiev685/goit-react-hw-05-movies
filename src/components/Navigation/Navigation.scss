@@ -1,0 +1,9 @@
+.navigation {
+  &__link {
+    text-decoration: none;
+  }
+
+  &__link:not(:last-child) {
+    margin-right: 10px;
+  }
+}
