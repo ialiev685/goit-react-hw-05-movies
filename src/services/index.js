@@ -1,1 +1,1 @@
-export { default } from "./ThemoviedbApi";
+export { fetchMovieId, fetchTrendingMovies } from "./ApiMovies";
