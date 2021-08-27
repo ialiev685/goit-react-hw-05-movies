@@ -7,6 +7,8 @@ import { HomePage } from "./HomePage";
 import { MovieDetailsPage } from "./MovieDetailsPage";
 import { Cast } from "./Cast";
 
+import { Reviews } from "./Reviews";
+
 const App = () => {
   return (
     <Container>
@@ -15,11 +17,14 @@ const App = () => {
         <Route path="/" exact>
           <HomePage />
         </Route>
-        <Route path="/movies/:movieId">
+        <Route path="/movies/:movieId" exact>
           <MovieDetailsPage />
         </Route>
         <Route path="/movies/:movieId/cast">
           <Cast />
+        </Route>
+        <Route path="/movies/:movieId/reviews">
+          <Reviews />
         </Route>
       </Switch>
     </Container>

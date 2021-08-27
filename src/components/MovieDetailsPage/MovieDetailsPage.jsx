@@ -1,15 +1,17 @@
-import React from "react";
-import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { fetchMovieId } from "../../services/ApiMovies";
+import { useParams, Link, useRouteMatch } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { fetchMovieId } from "../../services";
 
 export const MovieDetailsPage = () => {
+  const { url } = useRouteMatch();
+
   const [title, setTitle] = useState("");
   const [overview, setOverview] = useState("");
   const [popularity, setPopularity] = useState(0);
   const [genres, setGenres] = useState(null);
   const [image, setImage] = useState("");
   const { movieId } = useParams();
+
   useEffect(() => {
     fetchMovieId(movieId).then((response) => {
       setTitle(response.original_title);
@@ -17,8 +19,6 @@ export const MovieDetailsPage = () => {
       setPopularity(response.popularity);
       setGenres(response.genres);
       setImage(`https://image.tmdb.org/t/p/w300/${response.poster_path}`);
-
-      console.log(response);
     });
   }, [movieId]);
 
@@ -46,10 +46,10 @@ export const MovieDetailsPage = () => {
         <h3>Additional information</h3>
         <ul>
           <li>
-            <Link>Cast</Link>
+            <Link to={`${url}/cast`}>Cast</Link>
           </li>
           <li>
-            <Link>Reviews</Link>
+            <Link to={`${url}/reviews`}>Reviews</Link>
           </li>
         </ul>
       </div>

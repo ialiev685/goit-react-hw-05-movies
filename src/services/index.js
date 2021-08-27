@@ -1,1 +1,6 @@
-export { fetchMovieId, fetchTrendingMovies } from "./ApiMovies";
+export {
+  fetchMovieId,
+  fetchTrendingMovies,
+  fetchCast,
+  fetchReviews,
+} from "./ApiMovies";

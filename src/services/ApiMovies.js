@@ -1,5 +1,3 @@
-import React from "react";
-
 const KEY = "84329a5e6f042ddf8ad0e4967f6ce51f";
 
 const fetchTrendingMovies = () => {
@@ -14,4 +12,16 @@ const fetchMovieId = (movieId) => {
   ).then((response) => response.json());
 };
 
-export { fetchMovieId, fetchTrendingMovies };
+const fetchCast = (movieId) => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${KEY}&language=en-US`
+  ).then((response) => response.json());
+};
+
+const fetchReviews = (movieId) => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${KEY}&language=en-US&page=1`
+  ).then((response) => response.json());
+};
+
+export { fetchMovieId, fetchTrendingMovies, fetchCast, fetchReviews };
