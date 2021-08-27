@@ -8,7 +8,7 @@ export const Reviews = () => {
 
   useEffect(() => {
     fetchReviews(movieId).then((response) => setContent(response.results));
-  }, []);
+  }, [movieId]);
   console.log(content);
   return (
     <div>

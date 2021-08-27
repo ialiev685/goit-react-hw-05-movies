@@ -5,9 +5,9 @@ import { Navigation } from "./Navigation";
 
 import { HomePage } from "./HomePage";
 import { MovieDetailsPage } from "./MovieDetailsPage";
-import { Cast } from "./Cast";
+// import { Cast } from "./Cast";
 
-import { Reviews } from "./Reviews";
+// import { Reviews } from "./Reviews";
 
 const App = () => {
   return (
@@ -17,15 +17,15 @@ const App = () => {
         <Route path="/" exact>
           <HomePage />
         </Route>
-        <Route path="/movies/:movieId" exact>
+        <Route path="/movies/:movieId">
           <MovieDetailsPage />
         </Route>
-        <Route path="/movies/:movieId/cast">
+        {/* <Route path="/movies/:movieId/cast">
           <Cast />
-        </Route>
-        <Route path="/movies/:movieId/reviews">
+        </Route> */}
+        {/* <Route path="/movies/:movieId/reviews">
           <Reviews />
-        </Route>
+        </Route> */}
       </Switch>
     </Container>
   );

@@ -2,7 +2,7 @@ const KEY = "84329a5e6f042ddf8ad0e4967f6ce51f";
 
 const fetchTrendingMovies = () => {
   return fetch(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=${KEY}&page=1`
+    `https://api.themoviedb.org/3/trending/movie/day?api_key=${KEY}`
   ).then((response) => response.json());
 };
 

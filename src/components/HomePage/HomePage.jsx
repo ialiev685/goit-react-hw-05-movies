@@ -10,8 +10,6 @@ export const HomePage = () => {
     fetchTrendingMovies().then((response) => setListMovies(response.results));
   }, []);
 
-  // console.log(useRouteMatch());
-
   return (
     <div>
       <h1>Trending today</h1>

@@ -1,9 +1,21 @@
-import { useParams, Link, useRouteMatch } from "react-router-dom";
+import {
+  useParams,
+  Link,
+  useRouteMatch,
+  Route,
+  useHistory,
+  Switch,
+} from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { fetchMovieId } from "../../services";
 
+import { Cast } from "../Cast";
+import { Reviews } from "../Reviews";
+
 export const MovieDetailsPage = () => {
-  const { url } = useRouteMatch();
+  const { url, path } = useRouteMatch();
+
+  const history = useHistory();
 
   const [title, setTitle] = useState("");
   const [overview, setOverview] = useState("");
@@ -22,8 +34,15 @@ export const MovieDetailsPage = () => {
     });
   }, [movieId]);
 
+  const goBack = () => {
+    history.push("/");
+  };
+
   return (
     <div>
+      <button type="button" onClick={goBack}>
+        Go back
+      </button>
       <img src={image} alt={title} />
       <ul>
         <li>
@@ -52,6 +71,14 @@ export const MovieDetailsPage = () => {
             <Link to={`${url}/reviews`}>Reviews</Link>
           </li>
         </ul>
+      </div>
+      <div className="show-cast-reviews">
+        <Route path={`${path}/cast`}>
+          <Cast />
+        </Route>
+        <Route path={`${path}/reviews`}>
+          <Reviews />
+        </Route>
       </div>
     </div>
   );
