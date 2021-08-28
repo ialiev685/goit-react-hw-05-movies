@@ -6,10 +6,19 @@ import "./Navigation.scss";
 export const Navigation = () => {
   return (
     <nav className="navigation">
-      <NavLink to="/" className="navigation__link" activeClassName="">
+      <NavLink
+        exact
+        to="/"
+        className="navigation__link"
+        activeClassName="navigation__active-link"
+      >
         Home
       </NavLink>
-      <NavLink to="/movies" className="navigation__link" activeClassName="">
+      <NavLink
+        to="/movies"
+        className="navigation__link"
+        activeClassName="navigation__active-link"
+      >
         Movies
       </NavLink>
     </nav>

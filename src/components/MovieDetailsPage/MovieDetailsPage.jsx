@@ -4,7 +4,6 @@ import {
   useRouteMatch,
   Route,
   useHistory,
-  Switch,
 } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { fetchMovieId } from "../../services";

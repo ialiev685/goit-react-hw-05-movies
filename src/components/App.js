@@ -5,9 +5,8 @@ import { Navigation } from "./Navigation";
 
 import { HomePage } from "./HomePage";
 import { MovieDetailsPage } from "./MovieDetailsPage";
-// import { Cast } from "./Cast";
-
-// import { Reviews } from "./Reviews";
+import { SearchControl } from "./serachControl";
+// import { MoviesPage } from "./MoviesPage";
 
 const App = () => {
   return (
@@ -20,12 +19,12 @@ const App = () => {
         <Route path="/movies/:movieId">
           <MovieDetailsPage />
         </Route>
-        {/* <Route path="/movies/:movieId/cast">
-          <Cast />
+        {/* <Route>
+          <MoviesPage />
         </Route> */}
-        {/* <Route path="/movies/:movieId/reviews">
-          <Reviews />
-        </Route> */}
+        <Route path="/movies">
+          <SearchControl />
+        </Route>
       </Switch>
     </Container>
   );

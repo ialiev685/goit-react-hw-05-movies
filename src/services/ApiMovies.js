@@ -24,4 +24,16 @@ const fetchReviews = (movieId) => {
   ).then((response) => response.json());
 };
 
-export { fetchMovieId, fetchTrendingMovies, fetchCast, fetchReviews };
+const fetchSearchMovie = (serachQuery) => {
+  return fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=${KEY}&language=en-US&query=${serachQuery}&page=1&include_adult=false`
+  ).then((response) => response.json());
+};
+
+export {
+  fetchMovieId,
+  fetchTrendingMovies,
+  fetchCast,
+  fetchReviews,
+  fetchSearchMovie,
+};

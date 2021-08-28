@@ -6,4 +6,8 @@
   &__link:not(:last-child) {
     margin-right: 10px;
   }
+
+  &__active-link {
+    color: rgb(143, 0, 0);
+  }
 }
