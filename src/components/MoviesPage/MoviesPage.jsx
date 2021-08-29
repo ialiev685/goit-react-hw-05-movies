@@ -3,6 +3,8 @@ import { fetchSearchMovie } from "../../services";
 import { ListMovies } from "../ListMovies";
 import { useLocation, useHistory } from "react-router-dom";
 
+import "./MoviesPage.scss";
+
 export const MoviesPage = () => {
   const location = useLocation();
   const history = useHistory();
@@ -37,7 +39,7 @@ export const MoviesPage = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className="form-control" onSubmit={handleSubmit}>
         <input
           type="text"
           onChange={handleChange}
@@ -45,9 +47,12 @@ export const MoviesPage = () => {
           autoComplete="off"
           placeholder="Search images"
           value={searchName}
+          className="form-control__input"
         />
 
-        <button type="submit">search</button>
+        <button className="form-control__button" type="submit">
+          search
+        </button>
       </form>
       {findMovies && <ListMovies listMovies={findMovies} />}
     </>

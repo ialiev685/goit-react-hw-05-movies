@@ -1,6 +1,9 @@
 .navigation {
+  margin-bottom: 10px;
   &__link {
     text-decoration: none;
+    font-size: 22px;
+    color: black;
   }
 
   &__link:not(:last-child) {
@@ -8,6 +11,6 @@
   }
 
   &__active-link {
-    color: rgb(143, 0, 0);
+    color: rgb(190, 19, 19);
   }
 }

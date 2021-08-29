@@ -11,6 +11,7 @@ import { fetchMovieId } from "../../services";
 
 import { Cast } from "../Cast";
 import { Reviews } from "../Reviews";
+import "./MovieDetailsPage.scss";
 
 export const MovieDetailsPage = () => {
   const { url, path } = useRouteMatch();
@@ -42,37 +43,39 @@ export const MovieDetailsPage = () => {
   };
 
   return (
-    <div>
-      <button type="button" onClick={goBack}>
+    <div className="movie-detalis">
+      <button type="button" onClick={goBack} className="movie-detalis__return">
         Go back
       </button>
-      <img src={image} alt={title} />
-      <ul>
-        <li>
-          <h1>{title}</h1>
-          <p>User Score: {popularity}</p>
-        </li>
-        <li>
-          <h2>Overview</h2>
-          <p>{overview}</p>
-        </li>
-        <li>
-          <h2>Genres</h2>
-          <ul>
-            {genres &&
-              genres.map((el, index) => <li key={index}>{el.name}</li>)}
-          </ul>
-        </li>
-      </ul>
-      <div>
-        <h3>Additional information</h3>
-        <ul>
+      <div className="movie-detalis__wrapper">
+        <img src={image} alt={title} className="movie-detalis__poster" />
+        <ul className="movie-detalis__discription">
           <li>
+            <h1>{title}</h1>
+            <p>User Score: {popularity}</p>
+          </li>
+          <li>
+            <h2>Overview</h2>
+            <p>{overview}</p>
+          </li>
+          <li>
+            <h2>Genres</h2>
+            <ul className="movie-detalis__genres">
+              {genres &&
+                genres.map((el, index) => <li key={index}>{el.name}</li>)}
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div className="movie-detalis__additionally">
+        <h3>Additional information</h3>
+        <ul className="movie-detalis__list-additionally">
+          <li className="movie-detalis__item">
             <Link to={{ pathname: `${url}/cast`, state: { from: toReturn } }}>
               Cast
             </Link>
           </li>
-          <li>
+          <li className="movie-detalis__item">
             <Link
               to={{ pathname: `${url}/reviews`, state: { from: toReturn } }}
             >
@@ -81,7 +84,7 @@ export const MovieDetailsPage = () => {
           </li>
         </ul>
       </div>
-      <div className="show-cast-reviews">
+      <div>
         <Route path={`${path}/cast`}>
           <Cast />
         </Route>
