@@ -1,30 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import { fetchTrendingMovies } from "../../services/ApiMovies";
+import { ListMovies } from "../ListMovies";
 
 export const HomePage = () => {
-  const [listMovies, setListMovies] = useState(null);
+  const [trendMovies, setTrendMovies] = useState(null);
 
   useEffect(() => {
-    fetchTrendingMovies().then((response) => setListMovies(response.results));
+    fetchTrendingMovies().then((response) => setTrendMovies(response.results));
   }, []);
 
   return (
     <div>
       <h1>Trending today</h1>
 
-      {listMovies && (
-        <ul>
-          {listMovies.map((el) => {
-            return (
-              <li key={el.id}>
-                <Link to={`/movies/${el.id}`}>{el.title}</Link>
-              </li>
-            );
-          })}
-        </ul>
-      )}
+      {trendMovies && <ListMovies listMovies={trendMovies} />}
     </div>
   );
 };

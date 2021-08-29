@@ -4,6 +4,7 @@ import {
   useRouteMatch,
   Route,
   useHistory,
+  useLocation,
 } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { fetchMovieId } from "../../services";
@@ -15,6 +16,9 @@ export const MovieDetailsPage = () => {
   const { url, path } = useRouteMatch();
 
   const history = useHistory();
+  const location = useLocation();
+  console.log("detalis", location);
+  console.log("detalis", history);
 
   const [title, setTitle] = useState("");
   const [overview, setOverview] = useState("");
@@ -34,7 +38,7 @@ export const MovieDetailsPage = () => {
   }, [movieId]);
 
   const goBack = () => {
-    history.push("/");
+    history.push(location.state.from);
   };
 
   return (

@@ -5,8 +5,7 @@ import { Navigation } from "./Navigation";
 
 import { HomePage } from "./HomePage";
 import { MovieDetailsPage } from "./MovieDetailsPage";
-import { SearchControl } from "./serachControl";
-// import { MoviesPage } from "./MoviesPage";
+import { MoviesPage } from "./MoviesPage";
 
 const App = () => {
   return (
@@ -19,11 +18,9 @@ const App = () => {
         <Route path="/movies/:movieId">
           <MovieDetailsPage />
         </Route>
-        {/* <Route>
-          <MoviesPage />
-        </Route> */}
+
         <Route path="/movies">
-          <SearchControl />
+          <MoviesPage />
         </Route>
       </Switch>
     </Container>
