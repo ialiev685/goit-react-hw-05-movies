@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchCast } from "../../services";
+import { ItemCast } from "../ItemCast";
 
 export const Cast = () => {
   const { movieId } = useParams();
@@ -14,17 +15,12 @@ export const Cast = () => {
       <ul>
         {cast &&
           cast.map(({ cast_id, character, name, profile_path }) => (
-            <li key={cast_id}>
-              <img
-                src={
-                  profile_path &&
-                  `https://image.tmdb.org/t/p/w200/${profile_path}`
-                }
-                alt={name}
-              />
-              <p>{name}</p>
-              <p>character: {character}</p>
-            </li>
+            <ItemCast
+              key={cast_id}
+              character={character}
+              name={name}
+              profile={profile_path}
+            />
           ))}
       </ul>
     </div>

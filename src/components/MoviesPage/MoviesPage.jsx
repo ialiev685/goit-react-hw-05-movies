@@ -6,7 +6,8 @@ import { useLocation, useHistory } from "react-router-dom";
 export const MoviesPage = () => {
   const location = useLocation();
   const history = useHistory();
-  console.log("search", history);
+
+  const queryFromUrl = new URLSearchParams(location.search).get("query");
 
   const [query, setQuery] = useState("");
   const [searchName, setSearchName] = useState("");
@@ -17,8 +18,13 @@ export const MoviesPage = () => {
     fetchSearchMovie(query).then((response) => setFindMovies(response.results));
   }, [query]);
 
+  useEffect(() => {
+    if (!queryFromUrl) return;
+    setQuery(queryFromUrl);
+  }, [queryFromUrl]);
+
   const handleChange = (e) => {
-    setSearchName(e.target.value);
+    setSearchName(e.target.value.trim());
   };
 
   const handleSubmit = (e) => {

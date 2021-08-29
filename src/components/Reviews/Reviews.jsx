@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchReviews } from "../../services";
 import { useParams } from "react-router-dom";
+import { ItemReview } from "../ItemReview";
 
 export const Reviews = () => {
   const { movieId } = useParams();
@@ -9,18 +10,18 @@ export const Reviews = () => {
   useEffect(() => {
     fetchReviews(movieId).then((response) => setContent(response.results));
   }, [movieId]);
-  console.log(content);
+
   return (
     <div>
       {
         <ul>
-          {content &&
+          {content.length ? (
             content.map(({ author, content, id }) => (
-              <li key={id}>
-                <p>Author: {author}</p>
-                <p>{content}</p>
-              </li>
-            ))}
+              <ItemReview key={id} author={author} content={content} id={id} />
+            ))
+          ) : (
+            <p>We don't have any reviews for this movie</p>
+          )}
         </ul>
       }
     </div>

@@ -17,8 +17,8 @@ export const MovieDetailsPage = () => {
 
   const history = useHistory();
   const location = useLocation();
-  console.log("detalis", location);
-  console.log("detalis", history);
+
+  const toReturn = location.state.from;
 
   const [title, setTitle] = useState("");
   const [overview, setOverview] = useState("");
@@ -68,10 +68,16 @@ export const MovieDetailsPage = () => {
         <h3>Additional information</h3>
         <ul>
           <li>
-            <Link to={`${url}/cast`}>Cast</Link>
+            <Link to={{ pathname: `${url}/cast`, state: { from: toReturn } }}>
+              Cast
+            </Link>
           </li>
           <li>
-            <Link to={`${url}/reviews`}>Reviews</Link>
+            <Link
+              to={{ pathname: `${url}/reviews`, state: { from: toReturn } }}
+            >
+              Reviews
+            </Link>
           </li>
         </ul>
       </div>
