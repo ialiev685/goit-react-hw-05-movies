@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export const ItemCast = ({ character, name, profile }) => {
   return (
@@ -11,4 +12,10 @@ export const ItemCast = ({ character, name, profile }) => {
       <p>character: {character}</p>
     </li>
   );
+};
+
+ItemCast.propTypes = {
+  character: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  profile: PropTypes.string,
 };

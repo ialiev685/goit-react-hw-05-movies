@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { ItemMovie } from "../ItemMovie";
 
@@ -10,4 +11,8 @@ export const ListMovies = ({ listMovies }) => {
       ))}
     </ul>
   );
+};
+
+ListMovies.propTypes = {
+  listMovies: PropTypes.array.isRequired,
 };

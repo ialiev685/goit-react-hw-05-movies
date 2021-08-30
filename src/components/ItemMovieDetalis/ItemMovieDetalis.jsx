@@ -3,6 +3,7 @@ import React from "react";
 import { Cast } from "../Cast";
 import { Reviews } from "../Reviews";
 import { Link, Route, useRouteMatch } from "react-router-dom";
+import PropTypes from "prop-types";
 
 export const ItemMovieDetalis = ({ movieDetalis, toReturn }) => {
   const { title, overview, popularity, genres, poster_path } = movieDetalis;
@@ -20,7 +21,7 @@ export const ItemMovieDetalis = ({ movieDetalis, toReturn }) => {
         <ul className="movie-detalis__discription">
           <li>
             <h1>{title}</h1>
-            <p>User Score: {popularity}</p>
+            <p>User Score: {Math.ceil(popularity)}%</p>
           </li>
           <li>
             <h2>Overview</h2>
@@ -62,4 +63,14 @@ export const ItemMovieDetalis = ({ movieDetalis, toReturn }) => {
       </div>
     </div>
   );
+};
+
+ItemMovieDetalis.propTypes = {
+  movieDetalis: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    popularity: PropTypes.number.isRequired,
+    genres: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string })),
+    poster_path: PropTypes.string,
+  }),
 };

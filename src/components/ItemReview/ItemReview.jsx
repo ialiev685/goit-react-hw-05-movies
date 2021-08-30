@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export const ItemReview = ({ author, content }) => {
   return (
@@ -7,4 +8,9 @@ export const ItemReview = ({ author, content }) => {
       <p>{content}</p>
     </li>
   );
+};
+
+ItemReview.propTypes = {
+  author: PropTypes.string,
+  content: PropTypes.string,
 };
