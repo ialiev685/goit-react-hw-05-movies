@@ -49,7 +49,7 @@ export const MoviesPage = () => {
           onChange={handleChange}
           autoFocus
           autoComplete="off"
-          placeholder="Search images"
+          placeholder="Search movies"
           value={searchName}
           className="form-control__input"
         />

@@ -10,3 +10,5 @@ npm install --save-dev prettier eslint
 npx mrm@2 lint-staged
 
 npm install react-router-dom
+
+npm install netlify-cli
