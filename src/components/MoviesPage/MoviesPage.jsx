@@ -6,18 +6,22 @@ import { useLocation, useHistory } from "react-router-dom";
 import "./MoviesPage.scss";
 
 export const MoviesPage = () => {
+  const [query, setQuery] = useState("");
+  const [searchName, setSearchName] = useState("");
+  const [findMovies, setFindMovies] = useState(null);
+  const [error, setError] = useState("");
+
   const location = useLocation();
   const history = useHistory();
 
   const queryFromUrl = new URLSearchParams(location.search).get("query");
 
-  const [query, setQuery] = useState("");
-  const [searchName, setSearchName] = useState("");
-  const [findMovies, setFindMovies] = useState(null);
   useEffect(() => {
     if (!query) return;
 
-    fetchSearchMovie(query).then((response) => setFindMovies(response.results));
+    fetchSearchMovie(query)
+      .then((response) => setFindMovies(response.results))
+      .catch((error) => setError(error.message));
   }, [query]);
 
   useEffect(() => {
@@ -55,6 +59,7 @@ export const MoviesPage = () => {
         </button>
       </form>
       {findMovies && <ListMovies listMovies={findMovies} />}
+      {error && <p>{error}</p>}
     </>
   );
 };

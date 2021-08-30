@@ -5,9 +5,12 @@ import { ListMovies } from "../ListMovies";
 
 export const HomePage = () => {
   const [trendMovies, setTrendMovies] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    fetchTrendingMovies().then((response) => setTrendMovies(response.results));
+    fetchTrendingMovies()
+      .then((response) => setTrendMovies(response.results))
+      .catch((error) => setError(error.message));
   }, []);
 
   return (
@@ -15,6 +18,7 @@ export const HomePage = () => {
       <h1>Trending today</h1>
 
       {trendMovies && <ListMovies listMovies={trendMovies} />}
+      {error && <p>{error}</p>}
     </div>
   );
 };
