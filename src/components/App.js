@@ -1,4 +1,4 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import { Container } from "./Container";
 import { Navigation } from "./Navigation";
@@ -15,12 +15,18 @@ const App = () => {
         <Route path="/" exact>
           <HomePage />
         </Route>
+
         <Route path="/movies/:movieId">
           <MovieDetailsPage />
         </Route>
 
         <Route path="/movies">
           <MoviesPage />
+        </Route>
+
+        <Route>
+          {/* <HomePage /> */}
+          <Redirect to="/" />
         </Route>
       </Switch>
     </Container>

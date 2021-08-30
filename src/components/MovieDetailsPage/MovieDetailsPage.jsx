@@ -11,7 +11,7 @@ export const MovieDetailsPage = () => {
   const history = useHistory();
   const location = useLocation();
 
-  const toReturn = location.state.from;
+  const toReturn = location.state?.from || { pathname: "/" };
 
   const { movieId } = useParams();
 
@@ -20,7 +20,7 @@ export const MovieDetailsPage = () => {
   }, [movieId]);
 
   const goBack = () => {
-    history.push(location.state.from);
+    history.push(toReturn);
   };
 
   return (
