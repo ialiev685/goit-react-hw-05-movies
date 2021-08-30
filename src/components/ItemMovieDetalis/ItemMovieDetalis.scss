@@ -1,0 +1,34 @@
+.movie-detalis {
+  &__wrapper {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  &__discription {
+    padding: 0;
+    list-style: none;
+  }
+
+  &__poster {
+    margin-right: 20px;
+  }
+
+  &__genres {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__additionally {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+  }
+
+  &__list-additionally {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 5px;
+  }
+}

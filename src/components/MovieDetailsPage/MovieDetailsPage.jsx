@@ -25,7 +25,7 @@ export const MovieDetailsPage = () => {
 
   return (
     <>
-      <button type="button" onClick={goBack} className="movie-detalis__return">
+      <button type="button" onClick={goBack} className="button-return">
         Go back
       </button>
       {movieDetalis && (

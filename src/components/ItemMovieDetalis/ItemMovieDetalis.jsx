@@ -3,6 +3,9 @@ import React from "react";
 import { Cast } from "../Cast";
 import { Reviews } from "../Reviews";
 import { Link, Route, useRouteMatch } from "react-router-dom";
+
+import "./ItemMovieDetalis.scss";
+
 import PropTypes from "prop-types";
 
 export const ItemMovieDetalis = ({ movieDetalis, toReturn }) => {

@@ -59,6 +59,7 @@ export const MoviesPage = () => {
         </button>
       </form>
       {findMovies && <ListMovies listMovies={findMovies} />}
+      {findMovies?.length === 0 && <p>Not found</p>}
       {error && <p>{error}</p>}
     </>
   );
